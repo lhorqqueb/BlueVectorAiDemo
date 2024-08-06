@@ -1,9 +1,12 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import utils.Automations;
 import net.datafaker.Faker;
+import io.qameta.allure.*;
 
 import static utils.Automations.sleep;
 
@@ -35,6 +38,7 @@ public class ContactUsPage {
      * Method to fill in the contact form with fake data.
      * Uses Faker library to generate random data for each input field.
      */
+    @Step("Fill contact form with fake data")
     public void fillContactForm() {
         // Highlight and type in the Name input field
         Automations.highlight(loc_name_input);
@@ -65,15 +69,29 @@ public class ContactUsPage {
         sleep(2);
         Automations.type(loc_message_input, faker.lorem().paragraph());
         sleep(2);
+        attachScreenshot("Message Input Field Filled");
     }
 
     /**
      * Method to click the submit button on the contact form.
      * Highlights the submit button before clicking it.
      */
+    @Step("Click submit button")
     public void clickSubmit() {
         Automations.highlight(loc_submit_button);
         sleep(2);
         Automations.click(loc_submit_button);
+        attachScreenshot("Form Submitted");
+    }
+
+    /**
+     * Attach a screenshot to the Allure report.
+     *
+     * @param name The name of the attachment.
+     * @return The screenshot bytes.
+     */
+    @Attachment(value = "{0}", type = "image/png")
+    public byte[] attachScreenshot(String name) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

@@ -48,6 +48,7 @@ public class HealthcarePage {
     @Step("Open Healthcare page")
     public void open() {
         driver.get("https://bluevector.ai/healthcare/");
+        attachScreenshot("Opened Healthcare Page");
     }
 
     /**
@@ -184,25 +185,32 @@ public class HealthcarePage {
         UIActions.highlight(loc_case_study_document_ai);
         UIActions.sleep(1);
         attachScreenshot("Case Study Document AI Highlighted");
+
         UIActions.highlight(loc_case_study_CCAI);
         UIActions.sleep(1);
         attachScreenshot("Case Study CCAI Highlighted");
+
         UIActions.highlight(loc_case_study_visual_inspection);
         UIActions.sleep(1);
         attachScreenshot("Case Study Visual Inspection Highlighted");
+
         UIActions.highlight(loc_case_study_device_connect);
         UIActions.sleep(1);
         attachScreenshot("Case Study Device Connect Highlighted");
+
         UIActions.scrollToElement(loc_case_study_document_ai);
         UIActions.highlight(loc_case_study_sku_optimization);
         UIActions.sleep(1);
         attachScreenshot("Case Study SKU Optimization Highlighted");
+
         UIActions.highlight(loc_case_study_translation_ai);
         UIActions.sleep(1);
         attachScreenshot("Case Study Translation AI Highlighted");
+
         UIActions.highlight(loc_case_study_forecasting);
         UIActions.sleep(1);
         attachScreenshot("Case Study Forecasting Highlighted");
+
         UIActions.highlight(loc_case_study_medical_imaging_ai);
         UIActions.sleep(1);
         attachScreenshot("Case Study Medical Imaging AI Highlighted");

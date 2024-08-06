@@ -11,6 +11,7 @@ allure serve allure-results
 # Step 3: Clean up project directories
 echo "========================================= Cleaning up project directories... ========================================"
 rm -rf .idea
+rm -rf .DS_Store
 
 # Step 4: Run Maven clean
 echo " ============================================= Running Maven clean... ============================================="
